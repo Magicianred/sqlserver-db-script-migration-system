@@ -4,7 +4,10 @@ An implementation of [SimpleDbScriptMigrationSystem](https://github.com/Magician
 
 ## Instructions
 1. Run the script 000_InitialScript.sql (to create table for initialize the system)  
-2. For each script you write use this header and this footer (like in the *001_ScriptName.sql* script example)
+2. Run the script 000b_CreateUniqueCostraintForMigrationName.sql (to create unique constraint for field MigrationName)  
+2. For each script you write use this header and this footer, and if necessary this prerequisites block in the middle (like in the *001_ScriptName.sql* script example)
+
+![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/Magicianred/SimpleDbScriptMigrationSystem?label=version&sort=semver) ![GitHub](https://img.shields.io/github/license/Magicianred/sqlserver-db-script-migration-system)
 
 ### Header
 ```sql
@@ -32,7 +35,7 @@ The *SET NOEXEC ON* instruction block the execution of the sql statements
 
 ```sql
 -------------------- SCRIPT TO CHECK PREREQUISITES OF DbScriptMigrationSystem -------------------------------
-DECLARE @PrerequisiteMigrationName AS VARCHAR(1000) = '001_ScriptName'
+DECLARE @PrerequisiteMigrationName AS VARCHAR(1000) = '000_InitialScript'
 IF NOT EXISTS(SELECT MigrationId FROM [DbScriptMigration] WHERE MigrationName = @PrerequisiteMigrationName)
 BEGIN 
     raiserror('YOU HAVET TO RUN SCRIPT '+ @PrerequisiteMigrationName +' ON THIS DB!!! STOP EXECUTION SCRIPT', 11, 0)
@@ -48,7 +51,6 @@ BEGIN
 END
 -------------------- END SCRIPT TO CHECK PREREQUISITES OF DbScriptMigrationSystem ---------------------------
 ```
-Tu devi cambiare il valore della variabile X con il tuo sql script name che vuoi come prerequisito
 You have to change the value of the variable labelled *@PrerequisiteMigrationName* with the sql script name that you want to set as a prerequisite.  
 The *SET NOEXEC ON* instruction block the execution of the sql statements  
 

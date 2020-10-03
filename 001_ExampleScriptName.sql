@@ -1,5 +1,5 @@
 -------------------- SCRIPT TO CHECK OF DbScriptMigrationSystem -------------------------------
-DECLARE @MigrationName AS VARCHAR(1000) = '001_ScriptName'
+DECLARE @MigrationName AS VARCHAR(1000) = '001_ExampleScriptName'
 
 IF EXISTS(SELECT MigrationId FROM [DbScriptMigration] WHERE MigrationName = @MigrationName)
 BEGIN 
