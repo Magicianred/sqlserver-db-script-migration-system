@@ -20,7 +20,7 @@ PRINT 'Insert record into [DbScriptMigration]!'
 DECLARE @PrerequisiteMigrationName AS VARCHAR(1000) = '001_ScriptName'
 IF NOT EXISTS(SELECT MigrationId FROM [DbScriptMigration] WHERE MigrationName = @PrerequisiteMigrationName)
 BEGIN 
-    raiserror('YOU HAVET TO RUN SCRIPT '+ @PrerequisiteMigrationName +' ON THIS DB!!! STOP EXECUTION SCRIPT', 11, 0)
+    raiserror('YOU HAVET TO RUN SCRIPT %s ON THIS DB!!! STOP EXECUTION SCRIPT ', 11, 0, @PrerequisiteMigrationName)
     SET NOEXEC ON
 END
 
