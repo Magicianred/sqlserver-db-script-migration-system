@@ -15,7 +15,7 @@ change *db/release01* with your folder to destination
 3. Run the script 000b_CreateUniqueCostraintForMigrationName.sql (to create unique constraint for field MigrationName)  
 4. For each script you write use this header and this footer, and if necessary this prerequisites block in the middle (like in the *001_ScriptName.sql* script example)
 
-![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/Magicianred/SimpleDbScriptMigrationSystem?label=version&sort=semver) ![GitHub](https://img.shields.io/github/license/Magicianred/sqlserver-db-script-migration-system)
+![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/Magicianred/sqlserver-db-script-migration-system?label=version&sort=semver) ![GitHub](https://img.shields.io/github/license/Magicianred/sqlserver-db-script-migration-system)
 
 ### Header
 ```sql
